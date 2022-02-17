@@ -1,0 +1,35 @@
+version: '3.3'
+
+services:  
+  node-crud: 
+    container_name: vehicles_registration
+    build: ./node-crud
+    depends_on:
+      -   mssql
+    ports:
+      - "${PORT}"
+
+  mssql:
+    container_name: mssql_container
+    image: mcr.microsoft.com/mssql/server:2019-latest   
+    environment:    
+      SA_PASSWORD: "${DB_PASS}"
+      ACCEPT_EULA: "Y"
+      SQLDATA: /data/mssql    
+    volumes:
+      - ~/apps/mssql/data:/var/lib/mssql/data   
+      - ./node-crud/src/database/scripts:/docker-entrypoint-initdb.d/    
+      
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    networks:
+      - node-vehicles
+    restart: unless-stopped
+  
+ 
+networks:
+  node-vehicles:
+    driver: bridge
+
+volumes:
+    mssql:
