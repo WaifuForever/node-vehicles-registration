@@ -11,7 +11,7 @@ const selection: IVehicle = {
     renavam: 'renavam',
     chassis: 'chassis',
     model: 'model',
-    brand: 'renavam',
+    brand: 'brand',
     year: 'year',
 };
 
@@ -29,8 +29,9 @@ async function create(req: Request, res: Response) {
             year: year,
         };
 
-        await knex('vehicles').insert(vehicle);
-
+        const result = await knex('vehicles').insert(vehicle);
+        console.log(vehicle)
+       
         return res.jsonOK(vehicle, getMessage('vehicle.create.success'), {});
     } catch (error) {
         console.log(error);
