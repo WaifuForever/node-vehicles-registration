@@ -6,7 +6,7 @@ export const vehicle: IVehicle = {
     plaque: 'CRG-9310',
     renavam: '10101010101',
     chassis: '10101010102321311',
-    model: 'a',
+    model: 'abc',
     brand: 'ford',
     year: '1980',
 };
@@ -17,7 +17,7 @@ export const vehicle2: IVehicle = {
     plaque: 'DYT-6510',              
     renavam: '25413652486',
     chassis: '36452454126710036',    
-    model: 'd',
+    model: 'dsa',
     brand: 'ferrari',
     year: '2000',
 };

@@ -9,6 +9,11 @@
     "vehicle.create.success": "Vehicle stored!",
     "vehicle.findOne.success": "Vehicle retrieved successfuly!",
     "vehicle.list.success": "Vehicle list retrieved successfully! Vehicles found: ",
-    "vehicle.update.success": "Vehicle updated."
+    "vehicle.update.success": "Vehicle updated.",
+    "vehicle.invalid.plaque": "Invalid plaque.",
+    "vehicle.invalid.renavam": "Invalid renavam.",
+    "vehicle.invalid.chassis": "Invalid chassis.",
+    "vehicle.invalid.year": "Invalid year."
+
   
 }

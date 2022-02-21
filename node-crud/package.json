@@ -9,19 +9,19 @@
   "jest": {
     "verbose": true,
     "transform": {
-        "^.+\\.ts?$": "ts-jest"
+      "^.+\\.ts?$": "ts-jest"
     },
     "setupFiles": [
-        "dotenv/config"
+      "dotenv/config"
     ],
     "modulePathIgnorePatterns": [
-        "dist",
-        "postgres"
+      "dist",
+      "postgres"
     ],
     "setupFilesAfterEnv": [
-        "./test/config/test.config.ts"
+      "./test/config/test.config.ts"
     ]
-},
+  },
   "scripts": {
     "seed:make": "NODE_ENV=dev knex --knexfile src/database/config/migration.config.ts seed:make -x ts",
     "seed:run": "NODE_ENV=dev knex --knexfile src/database/config/migration.config.ts seed:run",
@@ -49,13 +49,15 @@
     "express": "^4.17.2",
     "express-rate-limit": "^6.2.1",
     "knex": "^1.0.3",
-    "pg": "^8.7.3"
+    "pg": "^8.7.3",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/jest": "^27.4.0",
     "@types/supertest": "^2.0.11",
+    "@types/yup": "^0.29.13",
     "jest": "^27.5.1",
     "supertest": "^6.2.2",
     "ts-jest": "^27.1.3",
