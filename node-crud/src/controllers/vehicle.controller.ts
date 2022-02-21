@@ -29,9 +29,8 @@ async function create(req: Request, res: Response) {
             year: year,
         };
 
-        const result = await knex('vehicles').insert(vehicle);
-        console.log(vehicle)
-       
+        await knex('vehicles').insert(vehicle);
+
         return res.jsonOK(vehicle, getMessage('vehicle.create.success'), {});
     } catch (error) {
         console.log(error);
@@ -60,9 +59,9 @@ async function findOne(req: Request, res: Response) {
 
 async function list(req: Request, res: Response) {
     try {
-        const vehicles: Array<IVehicle> = await knex('vehicles').select(
-            selection,
-        ).where({});
+        const vehicles: Array<IVehicle> = await knex('vehicles')
+            .select(selection)
+            .where({});
 
         return res.jsonOK(
             vehicles,
@@ -82,7 +81,8 @@ async function update(req: Request, res: Response) {
         const result = await knex('vehicles')
             .where('_id', _id)
             .update(req.body);
-        return res.jsonOK(result, getMessage('vehicle.update.success'), {});
+       
+        return res.jsonOK(null, getMessage('vehicle.update.success'), {});
     } catch (err) {
         console.log(err);
         return res.jsonBadRequest({ err: err }, null, null);

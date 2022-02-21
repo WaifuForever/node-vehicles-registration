@@ -11,6 +11,17 @@ export const vehicle: IVehicle = {
     year: '1980',
 };
 
+
+export const vehicle2: IVehicle = {
+    _id: randomUUID(),
+    plaque: 'DYT-6510',              
+    renavam: '25413652486',
+    chassis: '36452454126710036',    
+    model: 'd',
+    brand: 'ferrari',
+    year: '2000',
+};
+
 export const fakeVehicle = {
     _id: randomUUID(),
     plaque: 'CRGs-9315',
