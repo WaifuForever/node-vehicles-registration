@@ -5,7 +5,7 @@ import cors from 'cors';
 import corsOptionsDelegate from './cors.config';
 import limiter from './limiter.config';
 
-//import { response } from '../middlewares/response.middleware';
+import { response } from '../middlewares/response.middleware';
 
 import appRoute from '../routes/app.route';
 /*
@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cors(corsOptionsDelegate));
 app.use(limiter); // limiting all requests
-//app.use(response);
+app.use(response);
 app.use(appRoute);
 /*
 app.use('/auth', authRoute);
