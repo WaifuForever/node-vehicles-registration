@@ -23,13 +23,15 @@
     "dc:deepdown": "yarn dc:delete:volumes && yarn dc:delete:postgres",
     "dc:stop": "sudo docker-compose --env-file .env.dev stop",
     "dc:delete:volumes": "sudo docker-compose --env-file .env.dev down -v",
-    "dc:delete:postgres": "sudo rm -rf postgres"
+    "dc:delete:postgres": "sudo rm -rf ../postgres"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
-    "express-rate-limit": "^6.2.1"
+    "express-rate-limit": "^6.2.1",
+    "knex": "^1.0.3",
+    "pg": "^8.7.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",

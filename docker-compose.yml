@@ -5,26 +5,30 @@ services:
     container_name: vehicles_registration
     build: ./node-crud
     depends_on:
-      -   mssql
+      -   postgres
     ports:
-      - "${PORT}"
+      - "${PORT}:${PORT}"
 
-  mssql:
-    container_name: mssql_container
-    image: mcr.microsoft.com/mssql/server:2019-latest   
-    environment:    
-      SA_PASSWORD: "${DB_PASS}"
-      ACCEPT_EULA: "Y"
-      SQLDATA: /data/mssql    
+  postgres:
+    container_name: postgres_container
+    image: postgres:14.1        
+    environment:      
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
+      DATABASE_TEST_NAME: ${DB_TEST_NAME}
+      PGDATA: /data/postgres    
     volumes:
-      - ~/apps/mssql/data:/var/lib/mssql/data   
-      - ./node-crud/src/database/scripts:/docker-entrypoint-initdb.d/    
-      
+       - ./postgres:/data/postgres     
+       - ./node-crud/src/database/scripts:/docker-entrypoint-initdb.d/
+     
+     
     ports:
       - "${DB_PORT}:${DB_PORT}"
     networks:
       - node-vehicles
     restart: unless-stopped
+  
   
  
 networks:
