@@ -1,0 +1,14 @@
+{
+    "default.return": "Hello World!",
+    "default.unauthorized": "Unauthorized request.",
+    "default.success": "Successful request.",
+    "default.badRequest": "You didn't give us what we want!",
+    "invalid.uuid": "Invalid uuid.",
+
+
+    "vehicle.create.success": "Vehicle stored!",
+    "vehicle.findOne.success": "Vehicle retrieved successfuly!",
+    "vehicle.list.success": "Vehicle list retrieved successfully! Vehicles found: ",
+    "vehicle.update.success": "Vehicle updated."
+  
+}
